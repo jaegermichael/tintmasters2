@@ -84,7 +84,7 @@ export default function Home() {
               <Link className="button button-primary" to="/contact">
                 Get a free quote
               </Link>
-              <Link className="button button-outline" to="/services">
+              <Link className="button button-blue" to="/services">
                 Explore services
               </Link>
             </motion.div>
@@ -201,7 +201,7 @@ export default function Home() {
               </li>
             </ul>
             <div className="hero-actions">
-              <Link className="button button-primary" to="/about">
+              <Link className="button button-blue" to="/about">
                 About the team
               </Link>
               <a className="button button-outline" href={`tel:${tel}`}>
@@ -243,7 +243,7 @@ export default function Home() {
       </section>
 
       {/* Process */}
-      <section className="section">
+      <section className="section section-blue">
         <div className="shell">
           <Reveal className="section-head center">
             <p className="eyebrow">Simple process</p>
@@ -329,7 +329,7 @@ export default function Home() {
                     </option>
                   ))}
                 </select>
-                <button className="button button-primary" type="submit">
+                <button className="button button-blue" type="submit">
                   Continue →
                 </button>
               </div>
@@ -351,7 +351,7 @@ export default function Home() {
               <Link className="button button-primary" to="/contact">
                 Request a quote
               </Link>
-              <a className="button button-outline-light" href={`tel:${tel}`}>
+              <a className="button button-blue" href={`tel:${tel}`}>
                 Call {phone}
               </a>
             </div>

@@ -47,7 +47,7 @@ export default function About() {
               <Link className="button button-primary" to="/contact">
                 Talk to our team
               </Link>
-              <a className="button button-outline" href={`tel:${tel}`}>
+              <a className="button button-blue" href={`tel:${tel}`}>
                 Call us
               </a>
             </div>

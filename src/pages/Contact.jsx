@@ -72,7 +72,7 @@ export default function Contact() {
                 <p>{address}</p>
               </div>
             </div>
-            <a className="button button-primary" href={`tel:${tel}`}>
+            <a className="button button-blue" href={`tel:${tel}`}>
               Call now
             </a>
           </section>

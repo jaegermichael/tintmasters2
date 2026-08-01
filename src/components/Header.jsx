@@ -62,7 +62,7 @@ export default function Header() {
               <Link className="button button-primary" to="/contact" onClick={() => setIsOpen(false)}>
                 Request a quote
               </Link>
-              <a className="button button-outline" href={`tel:${tel}`}>
+              <a className="button button-blue" href={`tel:${tel}`}>
                 Call {phone}
               </a>
             </div>
