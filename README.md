@@ -1,16 +1,40 @@
-# React + Vite
+# Tint Masters Zimbabwe
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Premium mobile-first website for Tint Masters Zimbabwe — automotive & building tinting, vehicle branding, signage, CCTV and electric gates in Harare.
 
-Currently, two official plugins are available:
+## Design system
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Palette:** near-black `#07090d` · crimson `#e11d2e` · electric blue `#2f6bff` · white
+- **Type:** Bebas Neue (display) · Manrope (body) · JetBrains Mono (labels)
+- **Approach:** mobile-first conversion layout with sticky call/quote bar, full-screen mobile nav, bento services, tint comparison slider
 
-## React Compiler
+## Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19 + Vite 8
+- React Router 7
+- Framer Motion
+- Vanilla CSS (design tokens)
 
-## Expanding the Oxlint configuration
+## Local development
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```bash
+npm install
+npm run dev
+```
+
+## Production build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Deploy
+
+Configured for Vercel (`vercel.json` + `public/_redirects` for SPA routing).
+
+## Contact (site content)
+
+- Phone: +263 78 422 7110
+- Email: sales@tintmasters.co.zw
+- Location: 15223 10th Close, Sunningdale 2, Harare, Zimbabwe
