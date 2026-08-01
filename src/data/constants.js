@@ -4,8 +4,6 @@ export const email = 'sales@tintmasters.co.zw';
 export const address = '15223 10th Close, Sunningdale 2, Harare, Zimbabwe';
 export const facebook = 'https://www.facebook.com/CarWindowTintHarare';
 
-// Images are self-hosted from /public/images so the site no longer depends on
-// the live WordPress site staying online (previously these were hotlinked).
 export const images = {
   tint: '/images/tint.jpg',
   frost: '/images/frost.jpg',
@@ -15,16 +13,17 @@ export const images = {
   wrap: '/images/wrap.jpg',
   founder: '/images/founder.jpg',
   team: '/images/team.jpg',
-  heroPoster: '/images/hero-poster.jpg'
+  heroPoster: '/images/hero-poster.jpg',
+  map: '/images/zimbabwe-map.svg'
 };
 
 export const serviceCards = [
-  ['Automotive tinting', 'Ceramic tint options for comfort, privacy and a refined finish.', images.tint, true],
-  ['Window frosting', 'Privacy that still lets the light work.', images.frost, false],
-  ['Building tinting', 'Residential and commercial window solutions.', images.building, false],
-  ['Gates and CCTV', 'Stronger access control for the spaces that matter.', images.gate, false],
-  ['Signage', 'Clear, practical signs that do their job.', images.signage, false],
-  ['Vehicle branding', 'Put your business in motion.', images.wrap, false]
+  ['Automotive tinting', 'Ceramic tint options for comfort, privacy and a refined finish.', images.tint],
+  ['Window frosting', 'Privacy that still lets the light work.', images.frost],
+  ['Building tinting', 'Residential and commercial window solutions.', images.building],
+  ['Gates and CCTV', 'Stronger access control for the spaces that matter.', images.gate],
+  ['Signage', 'Clear, practical signs that do their job.', images.signage],
+  ['Vehicle branding', 'Put your business in motion.', images.wrap]
 ];
 
 export const serviceData = [
@@ -61,14 +60,20 @@ export const values = [
   { num: '03', label: 'Service', title: 'Keep it simple', desc: 'We communicate clearly, turn up prepared and focus on completing the job properly.' }
 ];
 
-export const trustPoints = [
-  'Mobile-ready quotes',
-  'Ceramic film options',
-  'Harare-based team',
-  'Vehicles · homes · business'
+export const features = [
+  ['01', 'Heat control', 'Ceramic film options that cut glare and cabin heat for Zimbabwe roads.'],
+  ['02', 'Privacy finish', 'Cleaner, darker glass without guessing the final look.'],
+  ['03', 'Brand visibility', 'Fleet wraps and signage that make your business easy to spot.'],
+  ['04', 'Site security', 'CCTV and electric gates for homes and commercial premises.']
 ];
 
-export const marqueeItems = [
+export const processSteps = [
+  ['01', 'Tell us the job', 'Vehicle, building or brand outcome — send photos if you have them.'],
+  ['02', 'Get a clear quote', 'We recommend the right film, frosting or install path.'],
+  ['03', 'We finish it right', 'Booked install with a clean edge and a practical result.']
+];
+
+export const ribbonItems = [
   'Automotive tint',
   'Building film',
   'Window frosting',

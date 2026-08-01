@@ -11,7 +11,7 @@ export default function Services() {
         title="The right finish for the way you work."
         copy="Six core services for vehicles, buildings and business premises. Tell us the outcome you need — we’ll shape the right route."
       />
-      <section className="section">
+      <section className="section section-soft">
         <div className="shell">
           {serviceData.map(([title, text, image], i) => (
             <Reveal as="article" key={title} delay={i === 0 ? 0 : 0.05} className="service-detail">

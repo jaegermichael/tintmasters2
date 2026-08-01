@@ -10,12 +10,17 @@ export default function Footer() {
         <div className="shell footer-grid">
           <section className="footer-brand">
             <Link className="brand" to="/">
-              Tint<span>Masters</span>
-              <small>Zimbabwe</small>
+              <span className="brand-mark" aria-hidden="true">
+                TM
+              </span>
+              <span>
+                Tint<span>Masters</span>
+                <small>Zimbabwe</small>
+              </span>
             </Link>
             <p>
-              Precision tinting, vehicle branding and practical security installations for homes,
-              businesses and the road across Harare.
+              Tinting, vehicle branding and practical security installs for homes, businesses and the
+              road across Harare.
             </p>
           </section>
           <section>

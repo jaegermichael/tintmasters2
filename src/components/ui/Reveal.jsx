@@ -1,15 +1,6 @@
 import { forwardRef } from 'react';
 import { motion } from 'framer-motion';
 
-/**
- * Small wrapper that fades + slides its children up into view the first
- * time they scroll into the viewport. Framer Motion's `reducedMotion="user"`
- * (set globally in App.jsx) automatically disables this for visitors who
- * prefer reduced motion, so no extra handling is needed here.
- *
- * `as` can be a DOM tag string ("div", "section", "article") or a React
- * component such as react-router's Link.
- */
 const Reveal = forwardRef(function Reveal(
   { children, delay = 0, y = 24, className, as = 'div', ...rest },
   ref

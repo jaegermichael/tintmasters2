@@ -17,23 +17,16 @@ export default function Gallery() {
   const [dialogImage, setDialogImage] = useState({ src: '', alt: '' });
   const dialogRef = useRef(null);
 
-  // The dialog stays mounted in the DOM at all times so the native
-  // showModal()/close() API and Escape-to-close behaviour work correctly.
   useEffect(() => {
     const dialogEl = dialogRef.current;
     if (!dialogEl) return;
-    if (dialogOpen && !dialogEl.open) {
-      dialogEl.showModal();
-    } else if (!dialogOpen && dialogEl.open) {
-      dialogEl.close();
-    }
+    if (dialogOpen && !dialogEl.open) dialogEl.showModal();
+    else if (!dialogOpen && dialogEl.open) dialogEl.close();
   }, [dialogOpen]);
 
   useEffect(() => {
     const dialogEl = dialogRef.current;
     if (!dialogEl) return;
-    // Keeps React state in sync when the dialog is closed natively
-    // (Escape key or the browser's built-in <dialog> handling).
     const handleClose = () => setDialogOpen(false);
     dialogEl.addEventListener('close', handleClose);
     return () => dialogEl.removeEventListener('close', handleClose);
@@ -41,11 +34,6 @@ export default function Gallery() {
 
   const filteredItems =
     filter === 'all' ? galleryItems : galleryItems.filter(([category]) => category === filter);
-
-  const openDialog = (src, alt) => {
-    setDialogImage({ src, alt });
-    setDialogOpen(true);
-  };
 
   return (
     <main id="content">
@@ -55,7 +43,7 @@ export default function Gallery() {
         copy="A selection of Tint Masters projects across automotive, property, branding and security work."
       />
 
-      <section className="section section-fog">
+      <section className="section">
         <div className="shell">
           <div className="gallery-controls" aria-label="Filter gallery">
             {filters.map(([id, label]) => (
@@ -81,7 +69,10 @@ export default function Gallery() {
                   transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                   className="gallery-card"
                   data-category={category}
-                  onClick={() => openDialog(src, label)}
+                  onClick={() => {
+                    setDialogImage({ src, alt: label });
+                    setDialogOpen(true);
+                  }}
                 >
                   <img src={src} alt={label} loading="lazy" />
                   <span>{label}</span>
@@ -96,8 +87,6 @@ export default function Gallery() {
         className="dialog"
         ref={dialogRef}
         onClick={(e) => {
-          // Clicking the backdrop (the <dialog> element itself, not its
-          // content) closes it.
           if (e.target === dialogRef.current) setDialogOpen(false);
         }}
       >

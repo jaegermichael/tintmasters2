@@ -12,8 +12,26 @@ export default function About() {
         copy="We bring tinting, branding and security under one roof — with a practical approach and a careful finish built for Harare."
       />
 
-      <section className="section section-fog">
+      <section className="section">
         <div className="shell intro-grid">
+          <Reveal className="about-collage">
+            <img src={images.team} alt="Tint Masters project work" />
+            <img src={images.founder} alt="Tint Masters team at work" />
+            <div className="about-stat">
+              <div>
+                <b>Local</b>
+                <span>Harare based</span>
+              </div>
+              <div>
+                <b>Full</b>
+                <span>Service range</span>
+              </div>
+              <div>
+                <b>Clear</b>
+                <span>Quotes & installs</span>
+              </div>
+            </div>
+          </Reveal>
           <Reveal delay={0.05} className="intro-copy">
             <p className="eyebrow">Our approach</p>
             <h2>Solve the practical part. Then refine the visible part.</h2>
@@ -25,7 +43,7 @@ export default function About() {
               That could be cooler cabin temperatures, a private meeting room, a branded fleet or a
               more secure entrance. The material changes — the standard does not.
             </p>
-            <div className="hero-actions" style={{ marginTop: '.35rem' }}>
+            <div className="hero-actions">
               <Link className="button button-primary" to="/contact">
                 Talk to our team
               </Link>
@@ -34,16 +52,12 @@ export default function About() {
               </a>
             </div>
           </Reveal>
-          <Reveal className="about-visual">
-            <img src={images.team} alt="Tint Masters project work" />
-            <img src={images.founder} alt="Tint Masters team at work" />
-          </Reveal>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section-soft">
         <div className="shell">
-          <Reveal className="section-heading">
+          <Reveal className="section-head center">
             <p className="eyebrow">What guides us</p>
             <h2>Clear recommendations. Careful execution.</h2>
           </Reveal>
@@ -61,19 +75,21 @@ export default function About() {
         </div>
       </section>
 
-      <Reveal as="section" className="cta-band">
+      <section className="section" style={{ paddingTop: 0 }}>
         <div className="shell">
-          <div>
-            <h2>Ready to improve your space?</h2>
-            <p>From first call to final edge — we keep the process simple and the finish sharp.</p>
-          </div>
-          <div className="cta-actions">
-            <Link className="button button-primary" to="/contact">
-              Request a quote
-            </Link>
-          </div>
+          <Reveal className="cta-panel">
+            <div>
+              <h2>Ready to improve your space?</h2>
+              <p>From first call to final edge — we keep the process simple and the finish sharp.</p>
+            </div>
+            <div className="cta-actions">
+              <Link className="button button-primary" to="/contact">
+                Request a quote
+              </Link>
+            </div>
+          </Reveal>
         </div>
-      </Reveal>
+      </section>
     </main>
   );
 }

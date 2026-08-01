@@ -8,10 +8,13 @@ export default function Contact() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
+    if (!formRef.current) return;
     const service = params.get('service');
-    if (service && formRef.current) {
-      formRef.current.service.value = service;
-    }
+    const name = params.get('name');
+    const phoneParam = params.get('phone');
+    if (service) formRef.current.service.value = service;
+    if (name) formRef.current.name.value = name;
+    if (phoneParam) formRef.current.phone.value = phoneParam;
   }, []);
 
   const handleSubmit = (e) => {
@@ -32,10 +35,6 @@ export default function Contact() {
       data.get('message')
     ];
 
-    // No backend is wired up yet, so route the enquiry through the visitor's
-    // own email client as a functional fallback. To collect leads directly
-    // (e.g. into a CRM or inbox without opening a mail client), connect a
-    // form backend such as Formspree/Web3Forms and post `data` to it here.
     const subject = encodeURIComponent(`Website enquiry: ${data.get('service') || 'General'}`);
     const body = encodeURIComponent(lines.join('\n'));
     window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
@@ -52,14 +51,16 @@ export default function Contact() {
         copy="Call, email or send a short brief. The more context you share, the sharper our recommendation."
       />
 
-      <section className="section section-fog">
+      <section className="section section-soft">
         <div className="shell contact-grid">
           <section className="contact-info">
             <p className="eyebrow">Visit or get in touch</p>
-            <h2>Start with a conversation.</h2>
+            <h2 style={{ fontFamily: 'var(--display)', textTransform: 'uppercase', margin: 0 }}>
+              Start with a conversation.
+            </h2>
             <div className="contact-points">
               <div>
-                <small>Call / WhatsApp ready</small>
+                <small>Call / WhatsApp</small>
                 <a href={`tel:${tel}`}>{phone}</a>
               </div>
               <div>
@@ -71,7 +72,7 @@ export default function Contact() {
                 <p>{address}</p>
               </div>
             </div>
-            <a className="button button-blue" href={`tel:${tel}`}>
+            <a className="button button-primary" href={`tel:${tel}`}>
               Call now
             </a>
           </section>
@@ -112,7 +113,7 @@ export default function Contact() {
                 placeholder="Vehicle type, location, approximate scope or timing"
               />
             </div>
-            <button className="button button-primary" type="submit">
+            <button className="button button-primary button-block" type="submit">
               Send enquiry
             </button>
             <p className={`form-message ${showMessage ? 'show' : ''}`} role="status">

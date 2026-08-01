@@ -1,22 +1,4 @@
-/* cinematic accents kept separate for clarity */
-.hero::after{
-  content:"";
-  position:absolute;
-  z-index:-1;
-  inset:-40%;
-  background:linear-gradient(108deg,transparent 46%,rgba(255,255,255,.04) 49%,rgba(255,255,255,.16) 50%,rgba(255,255,255,.04) 51%,transparent 54%);
-  transform:translateX(-55%) rotate(-8deg);
-  animation:glassSweep 9s cubic-bezier(.22,1,.36,1) infinite;
-  pointer-events:none;
-  mix-blend-mode:screen;
-}
-@keyframes glassSweep{
-  0%,18%{transform:translateX(-55%) rotate(-8deg)}
-  54%,100%{transform:translateX(55%) rotate(-8deg)}
-}
+/* light motion accents */
 @media (prefers-reduced-motion:reduce){
-  .hero::after{animation:none}
-}
-@media (max-width:640px){
-  .tint-stage{box-shadow:10px 12px 0 0 rgba(225,29,46,.9), 0 20px 40px rgba(0,0,0,.4)}
+  .hero-map-photo{transform:none}
 }

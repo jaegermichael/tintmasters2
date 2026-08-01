@@ -2,18 +2,21 @@
 
 Premium mobile-first website for Tint Masters Zimbabwe — automotive & building tinting, vehicle branding, signage, CCTV and electric gates in Harare.
 
-## Design system
+## Layout v3
 
-- **Palette:** near-black `#07090d` · crimson `#e11d2e` · electric blue `#2f6bff` · white
-- **Type:** Bebas Neue (display) · Manrope (body) · JetBrains Mono (labels)
-- **Approach:** mobile-first conversion layout with sticky call/quote bar, full-screen mobile nav, bento services, tint comparison slider
+Inspired by commercial logistics templates (Logiko-style structure) and NGO/impact map heroes (Gainlove-style), adapted for a Zimbabwe tint shop:
+
+- **Light commercial base** with bold crimson/black CTAs
+- **Zimbabwe map silhouette hero** filled with project photography
+- Top utility bar, overlapping feature cards, process steps, quick-quote band
+- Sticky mobile Call / Quote bar
 
 ## Stack
 
 - React 19 + Vite 8
 - React Router 7
 - Framer Motion
-- Vanilla CSS (design tokens)
+- Vanilla CSS
 
 ## Local development
 
@@ -32,9 +35,3 @@ npm run preview
 ## Deploy
 
 Configured for Vercel (`vercel.json` + `public/_redirects` for SPA routing).
-
-## Contact (site content)
-
-- Phone: +263 78 422 7110
-- Email: sales@tintmasters.co.zw
-- Location: 15223 10th Close, Sunningdale 2, Harare, Zimbabwe
