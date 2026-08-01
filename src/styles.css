@@ -186,12 +186,29 @@ button{cursor:pointer;border:0;background:none}
   position:relative;
   padding:2rem 0 0;
   background:
-    radial-gradient(circle at 12% 18%, rgba(225,29,46,.07), transparent 28%),
-    radial-gradient(circle at 88% 12%, rgba(47,107,255,.16), transparent 30%),
-    radial-gradient(circle at 70% 80%, rgba(47,107,255,.08), transparent 35%),
-    linear-gradient(180deg,#fff 0%, #eef3fb 100%);
+    linear-gradient(180deg, rgba(8,10,14,.55) 0%, rgba(8,10,14,.72) 55%, rgba(8,10,14,.94) 100%),
+    url('/images/hero-poster.jpg') center 30%/cover no-repeat;
   overflow:hidden;
 }
+.hero-copy{color:#fff}
+.hero-copy h1{color:#fff}
+.hero-copy > p{color:rgba(255,255,255,.82)}
+.hero-badge{
+  background:rgba(255,255,255,.12);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.2);
+  backdrop-filter:blur(6px);
+}
+.hero-badge i{background:var(--red)}
+.hero-phone{
+  background:rgba(11,13,16,.55);
+  border-color:rgba(255,255,255,.16);
+  backdrop-filter:blur(10px);
+}
+.hero-phone b{color:rgba(255,255,255,.7)}
+.hero-phone a{color:#fff}
+.hero-visual{display:none}
+.hero-ribbon{position:relative;z-index:1}
 .hero-grid{
   display:grid;gap:1.75rem;align-items:center;
   padding-bottom:2rem;
@@ -689,7 +706,27 @@ button{cursor:pointer;border:0;background:none}
   .mobile-cta{display:none}
   .site-footer{padding-bottom:3rem}
 
-  .hero{padding:2.5rem 0 0}
+  .hero{
+    padding:2.5rem 0 0;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(225,29,46,.07), transparent 28%),
+      radial-gradient(circle at 88% 12%, rgba(47,107,255,.16), transparent 30%),
+      radial-gradient(circle at 70% 80%, rgba(47,107,255,.08), transparent 35%),
+      linear-gradient(180deg,#fff 0%, #eef3fb 100%);
+  }
+  .hero-copy{color:inherit}
+  .hero-copy h1{color:var(--ink)}
+  .hero-copy > p{color:var(--muted)}
+  .hero-badge{
+    background:var(--red-soft);color:var(--red);
+    border:none;backdrop-filter:none;
+  }
+  .hero-phone{
+    background:#fff;border-color:var(--line);backdrop-filter:none;
+  }
+  .hero-phone b{color:var(--muted)}
+  .hero-phone a{color:var(--ink)}
+  .hero-visual{display:grid}
   .hero-grid{
     grid-template-columns:1.05fr .95fr;gap:2rem;min-height:560px;align-items:center;padding-bottom:3rem;
   }
