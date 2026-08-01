@@ -13,6 +13,7 @@ import {
 } from '../data/constants';
 import Reveal from '../components/ui/Reveal';
 import Loader from '../components/ui/Loader';
+import { ArrowIcon, PhoneIcon, CheckIcon } from '../components/ui/Icon';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 22 },
@@ -82,15 +83,21 @@ export default function Home() {
             </motion.p>
             <motion.div className="hero-actions" variants={fadeUp}>
               <Link className="button button-primary" to="/contact">
-                Get a free quote
+                <span>Get a free quote</span>
+                <span className="btn-icon">
+                  <ArrowIcon />
+                </span>
               </Link>
               <Link className="button button-blue" to="/services">
-                Explore services
+                <span>Explore services</span>
+                <span className="btn-icon">
+                  <ArrowIcon />
+                </span>
               </Link>
             </motion.div>
             <motion.div className="hero-phone" variants={fadeUp}>
               <div className="hero-phone-icon" aria-hidden="true">
-                ☎
+                <PhoneIcon />
               </div>
               <div>
                 <b>Call or WhatsApp</b>
@@ -143,15 +150,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Feature cards overlapping ribbon — Logiko style */}
+      {/* Feature cards overlapping ribbon — double-bezel nested cards */}
       <section className="feature-strip">
         <div className="shell feature-grid">
           {features.map(([num, title, text], i) => (
-            <Reveal key={title} delay={Math.min(i * 0.06, 0.24)} className="feature-card">
-              <div className="feature-icon">{num}</div>
-              <div>
-                <h3>{title}</h3>
-                <p>{text}</p>
+            <Reveal key={title} delay={Math.min(i * 0.06, 0.24)} className="feature-card bezel">
+              <div className="feature-card-inner bezel-inner">
+                <div className="feature-icon">{num}</div>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </div>
               </div>
             </Reveal>
           ))}
@@ -188,24 +197,36 @@ export default function Home() {
             </p>
             <ul className="intro-points">
               <li>
-                <i>✓</i>
+                <i>
+                  <CheckIcon />
+                </i>
                 <span>Mobile-friendly quotes with photo-ready guidance</span>
               </li>
               <li>
-                <i>✓</i>
+                <i>
+                  <CheckIcon />
+                </i>
                 <span>Automotive, property and fleet work under one roof</span>
               </li>
               <li>
-                <i>✓</i>
+                <i>
+                  <CheckIcon />
+                </i>
                 <span>Practical installs built for local heat and glare</span>
               </li>
             </ul>
             <div className="hero-actions">
               <Link className="button button-blue" to="/about">
-                About the team
+                <span>About the team</span>
+                <span className="btn-icon">
+                  <ArrowIcon />
+                </span>
               </Link>
               <a className="button button-outline" href={`tel:${tel}`}>
-                Call now
+                <span>Call now</span>
+                <span className="btn-icon">
+                  <PhoneIcon />
+                </span>
               </a>
             </div>
           </Reveal>
@@ -227,14 +248,18 @@ export default function Home() {
                 key={title}
                 to="/services"
                 delay={Math.min(i * 0.05, 0.25)}
-                className="service-card"
+                className="service-card bezel"
               >
-                <img src={image} alt={title} loading="lazy" />
-                <div className="service-card-body">
-                  <b>{String(i + 1).padStart(2, '0')}</b>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                  <span className="link">View service →</span>
+                <div className="service-card-inner bezel-inner">
+                  <img src={image} alt={title} loading="lazy" />
+                  <div className="service-card-body">
+                    <b>{String(i + 1).padStart(2, '0')}</b>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                    <span className="link">
+                      View service <ArrowIcon />
+                    </span>
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -251,10 +276,12 @@ export default function Home() {
           </Reveal>
           <div className="process-grid">
             {processSteps.map(([num, title, text], i) => (
-              <Reveal key={title} delay={Math.min(i * 0.08, 0.24)} className="process-step">
-                <div className="process-num">{num}</div>
-                <h3>{title}</h3>
-                <p>{text}</p>
+              <Reveal key={title} delay={Math.min(i * 0.08, 0.24)} className="process-step bezel">
+                <div className="process-step-inner bezel-inner">
+                  <div className="process-num">{num}</div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -272,7 +299,10 @@ export default function Home() {
               around your vehicle, building and goals.
             </p>
             <Link className="button button-primary" to="/contact">
-              Ask about ceramic options
+              <span>Ask about ceramic options</span>
+              <span className="btn-icon">
+                <ArrowIcon />
+              </span>
             </Link>
           </Reveal>
           <Reveal
@@ -300,60 +330,73 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quick quote band — Logiko track order style */}
+      {/* Quick quote band — double-bezel with blue accent */}
       <section className="quote-band">
         <div className="shell">
-          <Reveal className="quote-panel">
-            <div>
-              <p className="eyebrow">Fast enquiry</p>
-              <h3>Request your quote</h3>
-              <p className="muted" style={{ margin: '0.5rem 0 0', color: 'var(--muted)' }}>
-                Share a few details and we’ll follow up with a clear recommendation.
-              </p>
+          <Reveal className="quote-panel bezel bezel-tint">
+            <div className="quote-panel-inner bezel-inner">
+              <div>
+                <p className="eyebrow">Fast enquiry</p>
+                <h3>Request your quote</h3>
+                <p className="muted" style={{ margin: '0.5rem 0 0', color: 'var(--muted)' }}>
+                  Share a few details and we’ll follow up with a clear recommendation.
+                </p>
+              </div>
+              <form className="quote-form" onSubmit={handleQuickQuote}>
+                <div className="row">
+                  <input name="name" placeholder="Your name" required />
+                  <input name="phone" placeholder="Phone number" required inputMode="tel" />
+                </div>
+                <div className="row">
+                  <select
+                    name="service"
+                    value={quoteService}
+                    onChange={(e) => setQuoteService(e.target.value)}
+                  >
+                    <option value="">Select a service</option>
+                    {serviceData.map(([title]) => (
+                      <option key={title} value={title}>
+                        {title}
+                      </option>
+                    ))}
+                  </select>
+                  <button className="button button-blue" type="submit">
+                    <span>Continue</span>
+                    <span className="btn-icon">
+                      <ArrowIcon />
+                    </span>
+                  </button>
+                </div>
+              </form>
             </div>
-            <form className="quote-form" onSubmit={handleQuickQuote}>
-              <div className="row">
-                <input name="name" placeholder="Your name" required />
-                <input name="phone" placeholder="Phone number" required inputMode="tel" />
-              </div>
-              <div className="row">
-                <select
-                  name="service"
-                  value={quoteService}
-                  onChange={(e) => setQuoteService(e.target.value)}
-                >
-                  <option value="">Select a service</option>
-                  {serviceData.map(([title]) => (
-                    <option key={title} value={title}>
-                      {title}
-                    </option>
-                  ))}
-                </select>
-                <button className="button button-blue" type="submit">
-                  Continue →
-                </button>
-              </div>
-            </form>
           </Reveal>
         </div>
       </section>
 
-      {/* Dark CTA */}
+      {/* Dark CTA — framed photo bezel */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="shell">
           <Reveal className="cta-panel">
-            <div>
-              <p className="eyebrow">Ready when you are</p>
-              <h2>Looking for the best tint & branding finish?</h2>
-              <p>Tell us the vehicle, building or brand outcome. We’ll recommend the right path.</p>
-            </div>
-            <div className="cta-actions">
-              <Link className="button button-primary" to="/contact">
-                Request a quote
-              </Link>
-              <a className="button button-blue" href={`tel:${tel}`}>
-                Call {phone}
-              </a>
+            <div className="cta-panel-inner">
+              <div>
+                <p className="eyebrow">Ready when you are</p>
+                <h2>Looking for the best tint & branding finish?</h2>
+                <p>Tell us the vehicle, building or brand outcome. We’ll recommend the right path.</p>
+              </div>
+              <div className="cta-actions">
+                <Link className="button button-primary" to="/contact">
+                  <span>Request a quote</span>
+                  <span className="btn-icon">
+                    <ArrowIcon />
+                  </span>
+                </Link>
+                <a className="button button-blue" href={`tel:${tel}`}>
+                  <span>Call {phone}</span>
+                  <span className="btn-icon">
+                    <PhoneIcon />
+                  </span>
+                </a>
+              </div>
             </div>
           </Reveal>
         </div>

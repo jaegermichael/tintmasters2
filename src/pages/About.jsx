@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import PageHero from '../components/ui/PageHero';
 import Reveal from '../components/ui/Reveal';
 import { images, values, tel } from '../data/constants';
+import { ArrowIcon, PhoneIcon } from '../components/ui/Icon';
 
 export default function About() {
   return (
@@ -45,10 +46,16 @@ export default function About() {
             </p>
             <div className="hero-actions">
               <Link className="button button-primary" to="/contact">
-                Talk to our team
+                <span>Talk to our team</span>
+                <span className="btn-icon">
+                  <ArrowIcon />
+                </span>
               </Link>
               <a className="button button-blue" href={`tel:${tel}`}>
-                Call us
+                <span>Call us</span>
+                <span className="btn-icon">
+                  <PhoneIcon />
+                </span>
               </a>
             </div>
           </Reveal>
@@ -63,12 +70,20 @@ export default function About() {
           </Reveal>
           <div className="values">
             {values.map(({ num, label, title, desc }, i) => (
-              <Reveal as="article" key={title} delay={Math.min(i * 0.08, 0.3)} y={16} className="value">
-                <b>
-                  {num} / {label}
-                </b>
-                <h3>{title}</h3>
-                <p>{desc}</p>
+              <Reveal
+                as="article"
+                key={title}
+                delay={Math.min(i * 0.08, 0.3)}
+                y={16}
+                className="value bezel"
+              >
+                <div className="value-inner bezel-inner">
+                  <b>
+                    {num} / {label}
+                  </b>
+                  <h3>{title}</h3>
+                  <p>{desc}</p>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -78,14 +93,19 @@ export default function About() {
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="shell">
           <Reveal className="cta-panel">
-            <div>
-              <h2>Ready to improve your space?</h2>
-              <p>From first call to final edge — we keep the process simple and the finish sharp.</p>
-            </div>
-            <div className="cta-actions">
-              <Link className="button button-primary" to="/contact">
-                Request a quote
-              </Link>
+            <div className="cta-panel-inner">
+              <div>
+                <h2>Ready to improve your space?</h2>
+                <p>From first call to final edge — we keep the process simple and the finish sharp.</p>
+              </div>
+              <div className="cta-actions">
+                <Link className="button button-primary" to="/contact">
+                  <span>Request a quote</span>
+                  <span className="btn-icon">
+                    <ArrowIcon />
+                  </span>
+                </Link>
+              </div>
             </div>
           </Reveal>
         </div>

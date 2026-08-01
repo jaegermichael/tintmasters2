@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import PageHero from '../components/ui/PageHero';
 import { galleryItems } from '../data/constants';
+import { CloseIcon } from '../components/ui/Icon';
 
 const filters = [
   ['all', 'All work'],
@@ -91,7 +92,7 @@ export default function Gallery() {
         }}
       >
         <button aria-label="Close image" onClick={() => setDialogOpen(false)}>
-          ×
+          <CloseIcon />
         </button>
         {dialogImage.src && <img src={dialogImage.src} alt={dialogImage.alt} />}
       </dialog>

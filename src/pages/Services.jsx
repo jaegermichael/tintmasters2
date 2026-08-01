@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import PageHero from '../components/ui/PageHero';
 import Reveal from '../components/ui/Reveal';
 import { serviceData } from '../data/constants';
+import { ArrowIcon } from '../components/ui/Icon';
 
 export default function Services() {
   return (
@@ -14,18 +15,28 @@ export default function Services() {
       <section className="section section-soft">
         <div className="shell">
           {serviceData.map(([title, text, image], i) => (
-            <Reveal as="article" key={title} delay={i === 0 ? 0 : 0.05} className="service-detail">
-              <img src={image} alt={title} loading="lazy" />
-              <div>
-                <p className="eyebrow">Service {String(i + 1).padStart(2, '0')}</p>
-                <h2>{title}</h2>
-                <p>{text}</p>
-                <Link
-                  className="button button-primary"
-                  to={`/contact?service=${encodeURIComponent(title)}`}
-                >
-                  Ask about this service
-                </Link>
+            <Reveal
+              as="article"
+              key={title}
+              delay={i === 0 ? 0 : 0.05}
+              className="service-detail bezel"
+            >
+              <div className="service-detail-inner bezel-inner">
+                <img src={image} alt={title} loading="lazy" />
+                <div>
+                  <p className="eyebrow">Service {String(i + 1).padStart(2, '0')}</p>
+                  <h2>{title}</h2>
+                  <p>{text}</p>
+                  <Link
+                    className="button button-primary"
+                    to={`/contact?service=${encodeURIComponent(title)}`}
+                  >
+                    <span>Ask about this service</span>
+                    <span className="btn-icon">
+                      <ArrowIcon />
+                    </span>
+                  </Link>
+                </div>
               </div>
             </Reveal>
           ))}

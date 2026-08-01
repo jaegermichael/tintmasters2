@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import PageHero from '../components/ui/PageHero';
 import { phone, tel, email, serviceData, address } from '../data/constants';
+import { ArrowIcon, PhoneIcon } from '../components/ui/Icon';
 
 export default function Contact() {
   const [showMessage, setShowMessage] = useState(false);
@@ -53,72 +54,82 @@ export default function Contact() {
 
       <section className="section section-soft">
         <div className="shell contact-grid">
-          <section className="contact-info">
-            <p className="eyebrow">Visit or get in touch</p>
-            <h2 style={{ fontFamily: 'var(--display)', textTransform: 'uppercase', margin: 0 }}>
-              Start with a conversation.
-            </h2>
-            <div className="contact-points">
-              <div>
-                <small>Call / WhatsApp</small>
-                <a href={`tel:${tel}`}>{phone}</a>
+          <section className="contact-info bezel">
+            <div className="contact-info-inner bezel-inner">
+              <p className="eyebrow">Visit or get in touch</p>
+              <h2 style={{ fontFamily: 'var(--display)', textTransform: 'uppercase', margin: 0 }}>
+                Start with a conversation.
+              </h2>
+              <div className="contact-points">
+                <div>
+                  <small>Call / WhatsApp</small>
+                  <a href={`tel:${tel}`}>{phone}</a>
+                </div>
+                <div>
+                  <small>Email</small>
+                  <a href={`mailto:${email}`}>{email}</a>
+                </div>
+                <div>
+                  <small>Location</small>
+                  <p>{address}</p>
+                </div>
               </div>
-              <div>
-                <small>Email</small>
-                <a href={`mailto:${email}`}>{email}</a>
-              </div>
-              <div>
-                <small>Location</small>
-                <p>{address}</p>
-              </div>
+              <a className="button button-blue" href={`tel:${tel}`}>
+                <span>Call now</span>
+                <span className="btn-icon">
+                  <PhoneIcon />
+                </span>
+              </a>
             </div>
-            <a className="button button-blue" href={`tel:${tel}`}>
-              Call now
-            </a>
           </section>
 
-          <form ref={formRef} className="contact-form" onSubmit={handleSubmit} noValidate>
-            <div className="form-row">
-              <div className="field">
-                <label htmlFor="name">Your name</label>
-                <input id="name" name="name" required autoComplete="name" />
+          <form ref={formRef} className="contact-form bezel" onSubmit={handleSubmit} noValidate>
+            <div className="contact-form-inner bezel-inner">
+              <div className="form-row">
+                <div className="field">
+                  <label htmlFor="name">Your name</label>
+                  <input id="name" name="name" required autoComplete="name" />
+                </div>
+                <div className="field">
+                  <label htmlFor="phone">Phone number</label>
+                  <input id="phone" name="phone" required autoComplete="tel" inputMode="tel" />
+                </div>
               </div>
               <div className="field">
-                <label htmlFor="phone">Phone number</label>
-                <input id="phone" name="phone" required autoComplete="tel" inputMode="tel" />
+                <label htmlFor="email">Email address</label>
+                <input id="email" name="email" type="email" required autoComplete="email" />
               </div>
+              <div className="field">
+                <label htmlFor="service">Service needed</label>
+                <select id="service" name="service">
+                  <option value="">Select a service</option>
+                  {serviceData.map(([title]) => (
+                    <option key={title} value={title}>
+                      {title}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="field">
+                <label htmlFor="message">Tell us about the project</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder="Vehicle type, location, approximate scope or timing"
+                />
+              </div>
+              <button className="button button-primary button-block" type="submit">
+                <span>Send enquiry</span>
+                <span className="btn-icon">
+                  <ArrowIcon />
+                </span>
+              </button>
+              <p className={`form-message ${showMessage ? 'show' : ''}`} role="status">
+                Thanks. Your email app should now be open with your enquiry pre-filled — just hit send.
+              </p>
             </div>
-            <div className="field">
-              <label htmlFor="email">Email address</label>
-              <input id="email" name="email" type="email" required autoComplete="email" />
-            </div>
-            <div className="field">
-              <label htmlFor="service">Service needed</label>
-              <select id="service" name="service">
-                <option value="">Select a service</option>
-                {serviceData.map(([title]) => (
-                  <option key={title} value={title}>
-                    {title}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="field">
-              <label htmlFor="message">Tell us about the project</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                required
-                placeholder="Vehicle type, location, approximate scope or timing"
-              />
-            </div>
-            <button className="button button-primary button-block" type="submit">
-              Send enquiry
-            </button>
-            <p className={`form-message ${showMessage ? 'show' : ''}`} role="status">
-              Thanks. Your email app should now be open with your enquiry pre-filled — just hit send.
-            </p>
           </form>
         </div>
       </section>
