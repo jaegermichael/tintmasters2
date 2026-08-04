@@ -2,6 +2,8 @@ export function ArrowIcon({ className }) {
   return (
     <svg
       className={className}
+      width="24"
+      height="24"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -20,6 +22,8 @@ export function PhoneIcon({ className }) {
   return (
     <svg
       className={className}
+      width="24"
+      height="24"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -37,6 +41,8 @@ export function CheckIcon({ className }) {
   return (
     <svg
       className={className}
+      width="24"
+      height="24"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -54,6 +60,8 @@ export function CloseIcon({ className }) {
   return (
     <svg
       className={className}
+      width="24"
+      height="24"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"

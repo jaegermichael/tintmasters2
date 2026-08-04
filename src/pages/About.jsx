@@ -76,9 +76,9 @@ export default function About() {
                 key={title}
                 delay={Math.min(i * 0.08, 0.3)}
                 y={16}
-                className="value bezel"
+                className="value"
               >
-                <div className="value-inner bezel-inner">
+                <div className="value-inner">
                   <b>
                     {num} / {label}
                   </b>
@@ -94,6 +94,10 @@ export default function About() {
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="shell">
           <Reveal className="cta-panel">
+            <div className="cta-panel-bg" aria-hidden="true">
+              <img src={images.heroPoster} alt="" />
+            </div>
+            <div className="cta-panel-veil" aria-hidden="true" />
             <div className="cta-panel-inner">
               <div>
                 <h2>Ready to improve your space?</h2>

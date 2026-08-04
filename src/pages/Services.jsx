@@ -20,9 +20,9 @@ export default function Services() {
               as="article"
               key={title}
               delay={i === 0 ? 0 : 0.05}
-              className="service-detail bezel"
+              className="service-detail"
             >
-              <div className="service-detail-inner bezel-inner">
+              <div className="service-detail-inner">
                 <ImageReveal src={image} alt={title} loading="lazy" />
                 <div>
                   <p className="eyebrow">Service {String(i + 1).padStart(2, '0')}</p>

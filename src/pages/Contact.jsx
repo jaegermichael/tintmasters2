@@ -54,8 +54,8 @@ export default function Contact() {
 
       <section className="section section-soft">
         <div className="shell contact-grid">
-          <section className="contact-info bezel">
-            <div className="contact-info-inner bezel-inner">
+          <section className="contact-info">
+            <div className="contact-info-inner">
               <p className="eyebrow">Visit or get in touch</p>
               <h2 style={{ fontFamily: 'var(--display)', textTransform: 'uppercase', margin: 0 }}>
                 Start with a conversation.
@@ -83,8 +83,8 @@ export default function Contact() {
             </div>
           </section>
 
-          <form ref={formRef} className="contact-form bezel" onSubmit={handleSubmit} noValidate>
-            <div className="contact-form-inner bezel-inner">
+          <form ref={formRef} className="contact-form" onSubmit={handleSubmit} noValidate>
+            <div className="contact-form-inner">
               <div className="form-row">
                 <div className="field">
                   <label htmlFor="name">Your name</label>

@@ -90,3 +90,81 @@ export const stats = [
   { value: '99%', label: 'Client satisfaction rate' },
   { value: '6', label: 'Core services, one team' }
 ];
+
+export const guarantees = [
+  'Free on-site assessment',
+  'Film warranty on every install',
+  'Quote back within 24 hours'
+];
+
+export const handledItems = [
+  {
+    label: 'Vehicles',
+    title: 'Automotive tinting',
+    text: 'Ceramic film cut for your exact glass — cooler cabin, cleaner look.',
+    image: images.tint
+  },
+  {
+    label: 'Offices',
+    title: 'Frosting & privacy',
+    text: 'Frosted partitions and shopfronts that keep daylight but close the view.',
+    image: images.frost
+  },
+  {
+    label: 'Buildings',
+    title: 'Property film',
+    text: 'Glare and heat control across homes, offices and commercial glass.',
+    image: images.building
+  },
+  {
+    label: 'Fleets',
+    title: 'Vehicle branding',
+    text: 'Wraps and decals that turn every trip into brand exposure.',
+    image: images.wrap
+  },
+  {
+    label: 'Premises',
+    title: 'CCTV & gates',
+    text: 'Access control and monitoring installed around the property line.',
+    image: images.gate
+  },
+  {
+    label: 'Business',
+    title: 'Signage',
+    text: 'Shopfront and directional signage that makes you easy to find.',
+    image: images.signage
+  }
+];
+
+export const projects = [
+  {
+    title: 'Ceramic tint — family SUV',
+    location: 'Borrowdale, Harare',
+    duration: '1 day',
+    description:
+      'Full ceramic film wrap on a daily-driven SUV. The owner wanted a cooler cabin for school runs without going illegally dark, so we balanced front and rear VLT levels and finished every edge by hand.',
+    specs: ['Ceramic 35% front', 'Ceramic 20% rear', 'UV + IR rejection', 'Hand-cut edges'],
+    image: images.tint,
+    thumbs: [images.tint, images.founder, images.team]
+  },
+  {
+    title: 'Frosted partitions — office fit-out',
+    location: 'Msasa, Harare',
+    duration: '3 days',
+    description:
+      'Meeting rooms needed privacy without losing the natural light the floor was designed around. We used banded frost film across the glass partitions and matched the finish to the tenant brand.',
+    specs: ['Banded frost film', 'Meeting room privacy', 'Daylight retained', 'Brand-matched'],
+    image: images.frost,
+    thumbs: [images.frost, images.building, images.signage]
+  },
+  {
+    title: 'Fleet branding — delivery vans',
+    location: 'Sunningdale, Harare',
+    duration: '2 weeks',
+    description:
+      'A full set of delivery vehicles wrapped and branded so the business stays visible across the city. Layout was tuned per vehicle so contact details stay readable in traffic.',
+    specs: ['Full vinyl wrap', 'Per-vehicle layout', 'Contact panel', 'Fleet consistency'],
+    image: images.wrap,
+    thumbs: [images.wrap, images.signage, images.gate]
+  }
+];
