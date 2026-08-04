@@ -3,6 +3,7 @@ import PageHero from '../components/ui/PageHero';
 import Reveal from '../components/ui/Reveal';
 import { images, values, tel } from '../data/constants';
 import { ArrowIcon, PhoneIcon } from '../components/ui/Icon';
+import ImageReveal from '../components/ui/ImageReveal';
 
 export default function About() {
   return (
@@ -16,8 +17,8 @@ export default function About() {
       <section className="section">
         <div className="shell intro-grid">
           <Reveal className="about-collage">
-            <img src={images.team} alt="Tint Masters project work" />
-            <img src={images.founder} alt="Tint Masters team at work" />
+            <ImageReveal src={images.team} alt="Tint Masters project work" />
+            <ImageReveal src={images.founder} alt="Tint Masters team at work" delay={0.12} />
             <div className="about-stat">
               <div>
                 <b>Local</b>

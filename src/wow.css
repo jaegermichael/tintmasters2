@@ -1,4 +1,4 @@
-/* light motion accents */
+/* reserved for future motion accents */
 @media (prefers-reduced-motion:reduce){
-  .hero-map-photo{transform:none}
+  .hero-bg img{transform:none}
 }

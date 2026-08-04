@@ -9,10 +9,12 @@ import {
   features,
   processSteps,
   ribbonItems,
-  serviceData
+  serviceData,
+  stats
 } from '../data/constants';
 import Reveal from '../components/ui/Reveal';
 import Loader from '../components/ui/Loader';
+import ImageReveal from '../components/ui/ImageReveal';
 import { ArrowIcon, PhoneIcon, CheckIcon } from '../components/ui/Icon';
 
 const fadeUp = {
@@ -27,7 +29,7 @@ export default function Home() {
   const mountTimeRef = useRef(Date.now());
   const [quoteService, setQuoteService] = useState('');
 
-  const MIN_LOADER_MS = 900;
+  const MIN_LOADER_MS = 700;
   const revealPage = () => {
     const remaining = MIN_LOADER_MS - (Date.now() - mountTimeRef.current);
     if (remaining > 0) setTimeout(() => setReady(true), remaining);
@@ -39,10 +41,7 @@ export default function Home() {
   }, [reveal]);
 
   useEffect(() => {
-    const t = setTimeout(() => setReady(true), 2200);
-    // open quickly — layout is light, no video dependency for first paint
     revealPage();
-    return () => clearTimeout(t);
   }, []);
 
   const ribbon = [...ribbonItems, ...ribbonItems];
@@ -61,8 +60,13 @@ export default function Home() {
     <main id="content">
       <AnimatePresence>{!ready && <Loader key="loader" />}</AnimatePresence>
 
-      {/* HERO — Gainlove-style map + Logiko bold type */}
+      {/* HERO — full-bleed photo, gradient darkest on the text side */}
       <section className="hero">
+        <div className="hero-bg" aria-hidden="true">
+          <img src={images.heroPoster} alt="" />
+        </div>
+        <div className="hero-scrim" aria-hidden="true" />
+
         <div className="shell hero-grid">
           <motion.div
             className="hero-copy"
@@ -95,49 +99,28 @@ export default function Home() {
                 </span>
               </Link>
             </motion.div>
-            <motion.div className="hero-phone" variants={fadeUp}>
-              <div className="hero-phone-icon" aria-hidden="true">
-                <PhoneIcon />
+            <motion.div className="hero-actions" variants={fadeUp} style={{ marginTop: '.15rem' }}>
+              <div className="hero-trust">
+                <div className="hero-trust-avatars" aria-hidden="true">
+                  <span>TM</span>
+                  <span>★</span>
+                  <span>+</span>
+                </div>
+                <div>
+                  <b>1,200+ jobs done</b>
+                  <span className="hero-trust-label">Vehicles, homes & fleets</span>
+                </div>
               </div>
-              <div>
-                <b>Call or WhatsApp</b>
-                <a href={`tel:${tel}`}>{phone}</a>
+              <div className="hero-phone">
+                <div className="hero-phone-icon" aria-hidden="true">
+                  <PhoneIcon />
+                </div>
+                <div>
+                  <b>Call or WhatsApp</b>
+                  <a href={`tel:${tel}`}>{phone}</a>
+                </div>
               </div>
             </motion.div>
-          </motion.div>
-
-          <motion.div
-            className="hero-visual"
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={ready ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-          >
-            <div className="hero-map-wrap">
-              <img
-                className="hero-map-photo"
-                src={images.tint}
-                alt="Tint Masters work shaped as the map of Zimbabwe"
-              />
-              <div className="hero-map-outline" aria-hidden="true">
-                <img src={images.map} alt="" />
-              </div>
-              <span className="hero-dot hero-dot-1" aria-hidden="true" />
-              <span className="hero-dot hero-dot-2" aria-hidden="true" />
-              <span className="hero-dot hero-dot-3" aria-hidden="true" />
-            </div>
-
-            <div className="hero-float hero-float-a">
-              <div>
-                <b>Harare HQ</b>
-                <span>Sunningdale 2 base</span>
-              </div>
-            </div>
-            <div className="hero-float hero-float-b">
-              <div>
-                <b>6 services</b>
-                <span>Tint · brand · secure</span>
-              </div>
-            </div>
           </motion.div>
         </div>
 
@@ -171,8 +154,8 @@ export default function Home() {
       <section className="section">
         <div className="shell intro-grid">
           <Reveal className="about-collage">
-            <img src={images.team} alt="Tint Masters commercial install" />
-            <img src={images.founder} alt="Automotive tint finishing" />
+            <ImageReveal src={images.team} alt="Tint Masters commercial install" />
+            <ImageReveal src={images.founder} alt="Automotive tint finishing" delay={0.12} />
             <div className="about-stat">
               <div>
                 <b>UV</b>
@@ -233,13 +216,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services */}
+      {/* Services — flip cards, reveal front image, hover flips to detail */}
       <section className="section section-soft">
         <div className="shell">
           <Reveal className="section-head center">
             <p className="eyebrow">What we do</p>
             <h2>Specialist services for vehicles, glass & premises</h2>
-            <p>Pick the outcome you need — we’ll recommend the right materials and install path.</p>
+            <p>Hover a card to see the detail, or tap through to the full service.</p>
           </Reveal>
           <div className="services-grid">
             {serviceCards.map(([title, text, image], i) => (
@@ -248,18 +231,30 @@ export default function Home() {
                 key={title}
                 to="/services"
                 delay={Math.min(i * 0.05, 0.25)}
-                className="service-card bezel"
+                className="service-card"
               >
-                <div className="service-card-inner bezel-inner">
-                  <img src={image} alt={title} loading="lazy" />
-                  <div className="service-card-body">
-                    <b>{String(i + 1).padStart(2, '0')}</b>
-                    <h3>{title}</h3>
-                    <p>{text}</p>
-                    <span className="link">
-                      View service <ArrowIcon />
-                    </span>
+                <div className="flip-scene">
+                  <div className="flip-card-inner">
+                    <div className="flip-face flip-front">
+                      <img src={image} alt={title} loading="lazy" />
+                      <div className="flip-front-body">
+                        <b>{String(i + 1).padStart(2, '0')}</b>
+                        <h3>{title}</h3>
+                        <span className="flip-front-hint">Hover for details</span>
+                      </div>
+                    </div>
+                    <div className="flip-face flip-back">
+                      <b>Service {String(i + 1).padStart(2, '0')}</b>
+                      <h3>{title}</h3>
+                      <p>{text}</p>
+                      <span className="link">
+                        View service <ArrowIcon />
+                      </span>
+                    </div>
                   </div>
+                  <span className="corner-badge" aria-hidden="true">
+                    <ArrowIcon />
+                  </span>
                 </div>
               </Reveal>
             ))}
@@ -277,13 +272,36 @@ export default function Home() {
           <div className="process-grid">
             {processSteps.map(([num, title, text], i) => (
               <Reveal key={title} delay={Math.min(i * 0.08, 0.24)} className="process-step bezel">
-                <div className="process-step-inner bezel-inner">
+                <div className="process-step-inner">
                   <div className="process-num">{num}</div>
                   <h3>{title}</h3>
                   <p>{text}</p>
                 </div>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats band — logistics-style big numbers + accent photo */}
+      <section className="section stats-band section-dark">
+        <div className="shell stats-grid">
+          <Reveal className="stats-visual">
+            <img src={images.wrap} alt="Tint Masters branded fleet vehicle" loading="lazy" />
+          </Reveal>
+          <div>
+            <Reveal className="section-head" style={{ marginBottom: '1.5rem' }}>
+              <p className="eyebrow">Track record</p>
+              <h2>Numbers that back the work</h2>
+            </Reveal>
+            <div className="stats-numbers">
+              {stats.map(({ value, label }, i) => (
+                <Reveal key={label} delay={Math.min(i * 0.08, 0.3)} className="stat-item">
+                  <b>{value}</b>
+                  <span>{label}</span>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>

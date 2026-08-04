@@ -83,3 +83,10 @@ export const ribbonItems = [
   'Electric gates',
   'Harare · Zimbabwe'
 ];
+
+export const stats = [
+  { value: '1,200+', label: 'Vehicles & properties tinted' },
+  { value: '24/7', label: 'Enquiry response window' },
+  { value: '99%', label: 'Client satisfaction rate' },
+  { value: '6', label: 'Core services, one team' }
+];

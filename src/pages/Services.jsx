@@ -3,6 +3,7 @@ import PageHero from '../components/ui/PageHero';
 import Reveal from '../components/ui/Reveal';
 import { serviceData } from '../data/constants';
 import { ArrowIcon } from '../components/ui/Icon';
+import ImageReveal from '../components/ui/ImageReveal';
 
 export default function Services() {
   return (
@@ -22,7 +23,7 @@ export default function Services() {
               className="service-detail bezel"
             >
               <div className="service-detail-inner bezel-inner">
-                <img src={image} alt={title} loading="lazy" />
+                <ImageReveal src={image} alt={title} loading="lazy" />
                 <div>
                   <p className="eyebrow">Service {String(i + 1).padStart(2, '0')}</p>
                   <h2>{title}</h2>

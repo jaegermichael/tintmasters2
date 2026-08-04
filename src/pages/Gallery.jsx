@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import PageHero from '../components/ui/PageHero';
 import { galleryItems } from '../data/constants';
-import { CloseIcon } from '../components/ui/Icon';
+import { CloseIcon, ArrowIcon } from '../components/ui/Icon';
 
 const filters = [
   ['all', 'All work'],
@@ -76,6 +76,9 @@ export default function Gallery() {
                   }}
                 >
                   <img src={src} alt={label} loading="lazy" />
+                  <span className="gallery-badge" aria-hidden="true">
+                    <ArrowIcon />
+                  </span>
                   <span>{label}</span>
                 </motion.button>
               ))}
