@@ -61,15 +61,10 @@ export default function Home() {
     <main id="content">
       <AnimatePresence>{!ready && <Loader key="loader" />}</AnimatePresence>
 
-      {/* ---------- HERO: photo background, flat dark panel on the text side ---------- */}
+      {/* ---------- HERO: solid dark text panel + clear photo of the work ---------- */}
       <section className="hero">
         <div className="hero-frame">
-          <div className="hero-bg" aria-hidden="true">
-            <img src={images.heroPoster} alt="" />
-          </div>
-          <div className="hero-panel" aria-hidden="true" />
-
-          <div className="hero-inner">
+          <div className="hero-panel-side">
             <motion.div
               className="hero-copy"
               initial="hidden"
@@ -81,8 +76,7 @@ export default function Home() {
                 Tinting · Branding · Security · Harare
               </motion.div>
               <motion.h1 variants={fadeUp}>
-                Protect the view.{' '}
-                <span className="accent-serif">own</span> the finish.
+                Protect the view. <span className="accent-serif">own</span> the finish.
               </motion.h1>
               <motion.p variants={fadeUp}>
                 Automotive and building tinting, vehicle branding, signage, CCTV and electric gates —
@@ -120,6 +114,13 @@ export default function Home() {
                 </div>
               </motion.div>
             </motion.div>
+          </div>
+
+          <div className="hero-photo">
+            <img
+              src={images.team}
+              alt="Tint Masters technician installing window film on a commercial glass facade in Harare"
+            />
           </div>
 
           <div className="hero-guarantees">
@@ -260,7 +261,7 @@ export default function Home() {
           </div>
 
           <Reveal className="band-media">
-            <img src={images.building} alt="Commercial building window film" loading="lazy" />
+            <img src={images.frost} alt="Frosted glass office partitions" loading="lazy" />
           </Reveal>
 
           <div className="pill-grid">
@@ -318,7 +319,7 @@ export default function Home() {
             </div>
 
             <Reveal className="stats-center">
-              <img src={images.team} alt="Tint Masters team on site" loading="lazy" />
+              <img src={images.building} alt="Tinted glass facade on a Harare building" loading="lazy" />
             </Reveal>
 
             <div className="stats-col">
@@ -490,7 +491,7 @@ export default function Home() {
         <div className="shell">
           <Reveal className="cta-panel">
             <div className="cta-panel-bg" aria-hidden="true">
-              <img src={images.heroPoster} alt="" />
+              <img src={images.tint} alt="" />
             </div>
             <div className="cta-panel-veil" aria-hidden="true" />
             <div className="cta-panel-inner">

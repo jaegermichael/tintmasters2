@@ -95,7 +95,7 @@ export default function About() {
         <div className="shell">
           <Reveal className="cta-panel">
             <div className="cta-panel-bg" aria-hidden="true">
-              <img src={images.heroPoster} alt="" />
+              <img src={images.tint} alt="" />
             </div>
             <div className="cta-panel-veil" aria-hidden="true" />
             <div className="cta-panel-inner">
